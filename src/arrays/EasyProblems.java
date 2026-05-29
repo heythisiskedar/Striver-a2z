@@ -1,7 +1,12 @@
+package arrays;
+import java.util.ArrayList;
+import java.util.List;
+
 public class EasyProblems {
     public static void main(String[] args) {
 
-
+        int[] nums = {1, 2, 3, 4, 5};
+        largestElement(nums);
     }
 
     static void largestElement(int[] nums) {
@@ -38,7 +43,8 @@ public class EasyProblems {
     }
 
     static void secondLargestElementBetter(int[] nums) {
-        if (nums.length <= 1) System.out.println(-1 + " " + -1);;
+        if (nums.length <= 1) System.out.println(-1 + " " + -1);
+        ;
 
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
@@ -129,7 +135,7 @@ public class EasyProblems {
     static void leftRotateArrayByOne(int[] nums) {
         int temp = nums[0];
 
-        for (int i = 1; i < nums.length; i++)  {
+        for (int i = 1; i < nums.length; i++) {
             nums[i - 1] = nums[i];
         }
 
@@ -183,7 +189,7 @@ public class EasyProblems {
 
         if (j == -1) return;
 
-        for (int i = j  + 1; i < n; i++) {
+        for (int i = j + 1; i < n; i++) {
             if (nums[i] != 0) {
                 int temp = nums[i];
                 nums[i] = nums[j];
@@ -288,9 +294,7 @@ public class EasyProblems {
             if (num == 1) {
                 count++;
                 if (count > max) max = count;
-            }
-
-            else count = 0;
+            } else count = 0;
         }
 
         System.out.println(max);
