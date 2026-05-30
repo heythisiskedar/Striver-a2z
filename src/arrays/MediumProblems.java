@@ -1,13 +1,17 @@
 package arrays;
-import java.util.*;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MediumProblems {
     public static void main(String[] args) {
 
-        int[] nums = {1, 1, 3, 4, 5, 1, 1};
+        int[] nums = {2, 3, 5, -2, 7, -4};
 
-        int major = majorityElementOptimal(nums);
-        System.out.println(major);
+        System.out.println(Arrays.toString(nums));
+        int sum = maxSubarray(nums);
+        System.out.println(sum);
     }
 
     static void twoSum(int[] nums, int target) {
@@ -114,5 +118,25 @@ public class MediumProblems {
         }
 
         return candidate;
+    }
+
+    static int maxSubarray(int[] nums) {
+        int sum = 0;
+        int maxSum = Integer.MIN_VALUE;
+
+
+        for (int num : nums) {
+            sum += num;
+
+            if (sum < 0) {
+                sum = 0;
+            }
+
+            if (sum > maxSum) {
+                maxSum = sum;
+            }
+        }
+
+        return maxSum;
     }
 }
