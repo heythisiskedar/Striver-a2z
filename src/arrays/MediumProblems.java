@@ -7,11 +7,11 @@ import java.util.Map;
 public class MediumProblems {
     public static void main(String[] args) {
 
-        int[] nums = {2, 3, 5, -2, 7, -4};
-
+        int[] nums = {2, 3, 4, 5, 1};
         System.out.println(Arrays.toString(nums));
-        int sum = maxSubarrayPrintSubarray(nums);
-        System.out.println("\n" + sum);
+
+        int profit = maxProfitBrute(nums);
+        System.out.println(profit);
     }
 
     static void twoSum(int[] nums, int target) {
@@ -170,5 +170,39 @@ public class MediumProblems {
         }
 
         return maxSum;
+    }
+
+    static int maxProfitBrute(int[] prices) {
+        int n = prices.length;
+        int maxProfit = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                int profit = prices[j] - prices[i];
+
+                if (profit > maxProfit) {
+                    maxProfit = profit;
+                }
+            }
+        }
+
+        return maxProfit;
+    }
+
+    static int maxProfitOptimal(int[] prices) {
+        int n = prices.length;
+        int minPrice = Integer.MAX_VALUE;
+        int maxProfit = 0;
+
+        for (int price : prices) {
+            if (price < minPrice) {
+                minPrice = price;
+
+            } else {
+                maxProfit = Math.max(maxProfit, price - minPrice);
+            }
+        }
+
+        return maxProfit;
     }
 }
