@@ -10,8 +10,8 @@ public class MediumProblems {
         int[] nums = {2, 3, 5, -2, 7, -4};
 
         System.out.println(Arrays.toString(nums));
-        int sum = maxSubarray(nums);
-        System.out.println(sum);
+        int sum = maxSubarrayPrintSubarray(nums);
+        System.out.println("\n" + sum);
     }
 
     static void twoSum(int[] nums, int target) {
@@ -135,6 +135,38 @@ public class MediumProblems {
             if (sum > maxSum) {
                 maxSum = sum;
             }
+        }
+
+        return maxSum;
+    }
+
+    static int maxSubarrayPrintSubarray(int[] nums) {
+        int sum = 0;
+        int maxSum = Integer.MIN_VALUE;
+
+        int start = 0; // Start index of current subarray
+        int ansStart = -1, ansEnd = -1; // Indices of maximum subarray
+
+        for (int i = 0; i < nums.length; i++) {
+            if (sum == 0) {
+                start = i;
+            }
+
+            sum += nums[i];
+
+            if (sum > maxSum) {
+                maxSum = sum;
+                ansStart = start;
+                ansEnd = i;
+            }
+
+            if (sum < 0) {
+                sum = 0;
+            }
+        }
+
+        for (int i = ansStart; i <= ansEnd; i++) {
+            System.out.print(nums[i] + " ");
         }
 
         return maxSum;
