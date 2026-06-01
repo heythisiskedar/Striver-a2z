@@ -1,17 +1,14 @@
 package arrays;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MediumProblems {
     public static void main(String[] args) {
 
-        int[] nums = {2, 3, 4, 5, 1};
+        int[] nums = {2, -11, 14, -13, -1, 5};
         System.out.println(Arrays.toString(nums));
 
-        int profit = maxProfitBrute(nums);
-        System.out.println(profit);
+        System.out.println(Arrays.toString(rearrangeArrayBrute(nums)));
     }
 
     static void twoSum(int[] nums, int target) {
@@ -35,12 +32,11 @@ public class MediumProblems {
     }
 
     static void sortArrayOf012(int[] nums) {
-        int count0 = 0, count1 = 0, count2 = 0;
+        int count0 = 0, count1 = 0;
 
         for (int num : nums) {
             if (num == 0) count0++;
             else if (num == 1) count1++;
-            else count2++;
         }
 
         for (int i = 0; i < count0; i++) {
@@ -191,7 +187,7 @@ public class MediumProblems {
 
     static int maxProfitOptimal(int[] prices) {
         int minPrice = Integer.MAX_VALUE;
-        int maxProfit = 0; // hi =
+        int maxProfit = 0;
 
         for (int price : prices) {
             if (price < minPrice) {
@@ -203,5 +199,43 @@ public class MediumProblems {
         }
 
         return maxProfit;
+    }
+
+    static int[] rearrangeArrayBrute(int[] nums) {
+        List<Integer> pos = new ArrayList<>();
+        List<Integer> neg = new ArrayList<>();
+
+        for (int num : nums) {
+            if (num > 0) {
+                pos.add(num);
+            } else {
+                neg.add(num);
+            }
+        }
+
+        for (int i = 0; i < nums.length / 2; i++) {
+            nums[i * 2] = pos.get(i);
+            nums[i * 2 + 1] = neg.get(i);
+        }
+
+        return nums;
+    }
+
+    static int[] rearrangeArrayOptimal(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+        int posIndex = 0, negIndex = 1;
+
+        for (int num : nums) {
+            if (num > 0) {
+                result[posIndex] = num;
+                posIndex += 2;
+            } else {
+                result[negIndex] = num;
+                negIndex += 2;
+            }
+        }
+
+        return result;
     }
 }
