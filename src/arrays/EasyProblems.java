@@ -5,8 +5,9 @@ import java.util.List;
 public class EasyProblems {
     public static void main(String[] args) {
 
-        int[] nums = {1, 2, 3, 4, 5};
-        largestElement(nums);
+        int[] nums = {0, 1, 2, 4, 5};
+        int num = missingNumberOptimal(nums);
+        System.out.println(num);
     }
 
     static void largestElement(int[] nums) {
@@ -280,13 +281,22 @@ public class EasyProblems {
     }
 
     static int missingNumberOptimal(int[] nums) {
-        int sum = 0;
-        int max = 0;
+        int missingNum = 0;
+        int n = nums.length + 1;
 
-        return 0;
+        for (int i = 0; i < n; i++) {
+            missingNum ^= i;
+        }
+
+        for (int num : nums) {
+            missingNum ^= num;
+        }
+
+        return missingNum;
     }
 
     static void consecutiveOnes(int[] nums) {
+
         int count = 0;
         int max = 0;
 
