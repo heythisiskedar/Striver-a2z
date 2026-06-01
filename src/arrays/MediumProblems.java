@@ -190,9 +190,8 @@ public class MediumProblems {
     }
 
     static int maxProfitOptimal(int[] prices) {
-        int n = prices.length;
         int minPrice = Integer.MAX_VALUE;
-        int maxProfit = 0;
+        int maxProfit = 0; // hi =
 
         for (int price : prices) {
             if (price < minPrice) {
