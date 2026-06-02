@@ -5,10 +5,10 @@ import java.util.*;
 public class MediumProblems {
     public static void main(String[] args) {
 
-        int[] nums = {2, -11, 14, -13, -1, 5};
-        System.out.println(Arrays.toString(nums));
-
-        System.out.println(Arrays.toString(rearrangeArrayBrute(nums)));
+        int[] nums = {2, -11, 14, -13, -1, 5, 1, 3};
+        
+        int num = longestConsecutive(nums);
+        System.out.println(num);
     }
 
     static void twoSum(int[] nums, int target) {
@@ -237,5 +237,39 @@ public class MediumProblems {
         }
 
         return result;
+    }
+
+    static int longestConsecutive (int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+
+        int longest = 1;
+
+        for (int num : nums) {
+            int cur = num;
+            int count = 1;
+
+            while (linearSearch(nums, cur + 1) == true) {
+                cur++;
+                count++;
+            }
+
+            if (count > longest) {
+                longest = count;
+            }
+        }
+
+        return longest;
+    }
+
+    private static boolean linearSearch(int[] nums, int target) {
+        for (int num : nums) {
+            if (target == num) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
