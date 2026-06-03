@@ -7,7 +7,7 @@ public class MediumProblems {
 
         int[] nums = {2, -11, 14, -13, -1, 5, 1, 3};
         
-        int num = longestConsecutive(nums);
+        int num = longestConsecutiveOptimal(nums);
         System.out.println(num);
     }
 
@@ -239,7 +239,7 @@ public class MediumProblems {
         return result;
     }
 
-    static int longestConsecutive (int[] nums) {
+    static int longestConsecutiveBrute (int[] nums) {
         if (nums.length == 0) {
             return 0;
         }
@@ -271,5 +271,34 @@ public class MediumProblems {
         }
 
         return false;
+    }
+
+    static int longestConsecutiveOptimal(int[] nums) {
+        if (nums.length == 0) {
+            return 0;
+        }
+
+        Set<Integer> set = new HashSet<>();
+        int longest = 1;
+
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        for (int i : set) {
+            if (!set.contains(i - 1)) {
+                int count = 1;
+                int cur = i;
+
+                while (set.contains(cur + 1)) {
+                    count++;
+                    cur++;
+                }
+
+                longest = Math.max(longest, count);
+            }
+        }
+
+        return longest;
     }
 }
