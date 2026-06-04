@@ -5,10 +5,16 @@ import java.util.*;
 public class MediumProblems {
     public static void main(String[] args) {
 
-        int[] nums = {2, -11, 14, -13, -1, 5, 1, 3};
+        int[][] matrix = new int[][] {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
         
-        int num = longestConsecutiveOptimal(nums);
-        System.out.println(num);
+        setZerosBrute(matrix);
+
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
     static void twoSum(int[] nums, int target) {
@@ -300,5 +306,36 @@ public class MediumProblems {
         }
 
         return longest;
+    }
+
+    static void setZerosBrute(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] == 0) {
+                    for (int col = 0; col < n; col++) {
+                        if (matrix[i][col] != 0) {
+                            matrix[i][col] = -1;
+                        } 
+                    }
+
+                    for (int row = 0; row < m; row++) {
+                        if (matrix[row][j] != 0) {
+                            matrix[row][j] = 0-1;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] == -1) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
     }
 }
