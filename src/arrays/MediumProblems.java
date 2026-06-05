@@ -5,9 +5,9 @@ import java.util.*;
 public class MediumProblems {
     public static void main(String[] args) {
 
-        int[][] matrix = new int[][] {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
+        int[][] matrix = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         
-        setZerosBetter(matrix);
+        rotoateImageBrute(matrix);
 
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
@@ -361,6 +361,30 @@ public class MediumProblems {
                     matrix[i][j] = 0;
                 }
              }
+        }
+    }
+
+    static void setZerosOptimal(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        
+    }
+
+    static void rotoateImageBrute(int[][] matrix) {
+        int n = matrix.length;
+        int[][] rotate = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                rotate[j][n - i - 1] = matrix[i][j];
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = rotate[i][j];
+            }
         }
     }
 }
