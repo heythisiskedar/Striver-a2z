@@ -8,7 +8,11 @@ public class MediumProblems {
         int[][] matrix = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         int[] nums = {-3, 4, 5, 1, -4, -5};
 
-        System.out.println(Arrays.toString(nums));       
+        System.out.println(Arrays.toString(nums));
+
+        List<Integer> result = new ArrayList<>();
+        result = leadersOptimal(nums);
+        System.out.println(result);
 
         // for (int i = 0; i < matrix.length; i++) {
         //     for (int j = 0; j < matrix[0].length; j++) {
@@ -452,7 +456,7 @@ public class MediumProblems {
         return list;
     }
 
-    static List<Integer> leaders(int[] nums) {
+    static List<Integer> leadersBrute(int[] nums) {
         List<Integer> list = new ArrayList<>();
         int n = nums.length;
         
@@ -475,6 +479,29 @@ public class MediumProblems {
         }
 
         list.add(nums[n - 1]);
+
+        return list;
+    }
+
+    static List<Integer> leadersOptimal(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        int n = nums.length;
+
+        if (n == 0) {
+            return list;
+        }
+
+        int max = nums[n - 1];
+        list.add(max);
+
+        for (int i = n - 2; i >= 0; i--) {
+            if (nums[i] > max) {
+                list.add(nums[i]);
+                max = nums[i];
+            }
+        }
+
+        Collections.reverse(list);
 
         return list;
     }
