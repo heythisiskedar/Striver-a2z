@@ -6,11 +6,9 @@ public class MediumProblems {
     public static void main(String[] args) {
 
         int[][] matrix = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        
-        List<Integer> result = new ArrayList<>();
-        result = spiralOrder(matrix);
+        int[] nums = {-3, 4, 5, 1, -4, -5};
 
-        System.out.println(result);
+        System.out.println(Arrays.toString(nums));       
 
         // for (int i = 0; i < matrix.length; i++) {
         //     for (int j = 0; j < matrix[0].length; j++) {
@@ -450,6 +448,33 @@ public class MediumProblems {
                 left++;
             }
         }
+
+        return list;
+    }
+
+    static List<Integer> leaders(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        int n = nums.length;
+        
+
+        for (int i = 0; i < n; i++) {
+            boolean greater = false;
+
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] <= nums[j]) {
+                    greater = false;
+                    break;
+                } else {
+                    greater = true;
+                }
+            }
+
+            if (greater) {
+                list.add(nums[i]);
+            }
+        }
+
+        list.add(nums[n - 1]);
 
         return list;
     }
