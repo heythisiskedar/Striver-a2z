@@ -10,7 +10,7 @@ public class MediumProblems {
 
         System.out.println(Arrays.toString(nums));
 
-        int result = subarraySumBrute(nums, 1);
+        int result = subarraySumBetter(nums, 1);
         System.out.println(result);
 
         // for (int i = 0; i < matrix.length; i++) {
@@ -516,6 +516,25 @@ public class MediumProblems {
                 for (int x = i; x <= j; x++) {
                     sum += nums[x];
                 }
+
+                if (sum == k) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+
+    static int subarraySumBetter(int[] nums, int k) {
+        int n = nums.length;
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+
+            for (int j = i; j < n; j++) {
+                sum += nums[j];
 
                 if (sum == k) {
                     count++;
