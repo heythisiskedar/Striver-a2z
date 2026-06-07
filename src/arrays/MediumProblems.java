@@ -10,8 +10,7 @@ public class MediumProblems {
 
         System.out.println(Arrays.toString(nums));
 
-        List<Integer> result = new ArrayList<>();
-        result = leadersOptimal(nums);
+        int result = subarraySumBrute(nums, 1);
         System.out.println(result);
 
         // for (int i = 0; i < matrix.length; i++) {
@@ -504,5 +503,26 @@ public class MediumProblems {
         Collections.reverse(list);
 
         return list;
+    }
+
+    static int subarraySumBrute(int[] nums, int k) {
+        int n = nums.length;
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                int sum = 0;
+
+                for (int x = i; x <= j; x++) {
+                    sum += nums[x];
+                }
+
+                if (sum == k) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
     }
 }
