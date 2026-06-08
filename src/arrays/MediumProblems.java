@@ -6,11 +6,11 @@ public class MediumProblems {
     public static void main(String[] args) {
 
         int[][] matrix = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        int[] nums = {-3, 4, 5, 1, -4, -5};
+        int[] nums = {1,2,3};
 
         System.out.println(Arrays.toString(nums));
 
-        int result = subarraySumBetter(nums, 1);
+        int result = subarraySumOptimal(nums, 3);
         System.out.println(result);
 
         // for (int i = 0; i < matrix.length; i++) {
@@ -540,6 +540,29 @@ public class MediumProblems {
                     count++;
                 }
             }
+        }
+
+        return count;
+    }
+
+    static int subarraySumOptimal(int[] nums, int k) {
+        int n = nums.length;
+        Map<Integer, Integer> map = new HashMap<>();
+
+        int prefixSum = 0;
+        int count = 0;
+
+        map.put(0, 1);
+
+        for (int num : nums) {
+            prefixSum += num;
+            int remove = prefixSum - k;
+
+            if (map.containsKey(remove)) {
+                count += map.get(remove);
+            }
+
+            map.put(prefixSum, map.getOrDefault(prefixSum, 0) + 1);
         }
 
         return count;
