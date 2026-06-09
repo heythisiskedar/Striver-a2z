@@ -6,12 +6,13 @@ public class MediumProblems {
     public static void main(String[] args) {
 
         int[][] matrix = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        int[] nums = {1,2,3};
+        int[] nums = {3, 2, 1};
 
         System.out.println(Arrays.toString(nums));
 
-        int result = subarraySumOptimal(nums, 3);
-        System.out.println(result);
+        nextPermutation(nums);
+        System.out.println(Arrays.toString(nums));
+
 
         // for (int i = 0; i < matrix.length; i++) {
         //     for (int j = 0; j < matrix[0].length; j++) {
@@ -546,7 +547,6 @@ public class MediumProblems {
     }
 
     static int subarraySumOptimal(int[] nums, int k) {
-        int n = nums.length;
         Map<Integer, Integer> map = new HashMap<>();
 
         int prefixSum = 0;
@@ -566,5 +566,47 @@ public class MediumProblems {
         }
 
         return count;
+    }
+
+    static void nextPermutation(int[] nums) {
+        int n = nums.length;
+        int index = -1;
+
+        for (int i = n - 2; i >= 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index == -1) {
+            reverse(nums, 0, n - 1);
+            return;
+        }
+
+        for (int i = n - 1; i > index; i++) {
+            if (nums[i] > nums[index]) {
+                swap(nums, i, index);
+                break;
+            }
+        }
+        
+
+        reverse(nums, index + 1, n - 1);
+    }
+
+    private static void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    private static void reverse(int[] nums, int left, int right) {
+        while (left < right) {
+            swap(nums, left, right);
+
+            left++;
+            right--;
+        }
     }
 }
