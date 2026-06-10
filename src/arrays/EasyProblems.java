@@ -23,6 +23,11 @@ public class EasyProblems {
     }
 
     static void secondLargestElementBrute(int[] nums) {
+        if (nums.length <= 1) {
+            System.out.println(-1 + " " + -1);
+            return;
+        }
+
         int max = Integer.MIN_VALUE;
         int secondMax = Integer.MIN_VALUE;
 
@@ -34,9 +39,9 @@ public class EasyProblems {
             if (num < min) min = num;
         }
 
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] > max && nums[i] != max) secondMax = nums[i];
-            if (nums[i] < max && nums[i] != min) secondMin = nums[i];
+        for (int num : nums) {
+            if (num > secondMax && num != max) secondMax = num;
+            if (num < secondMin && num != min) secondMin = num;
         }
 
         System.out.println("Second smallest element: " + secondMin);
@@ -44,8 +49,10 @@ public class EasyProblems {
     }
 
     static void secondLargestElementBetter(int[] nums) {
-        if (nums.length <= 1) System.out.println(-1 + " " + -1);
-        ;
+        if (nums.length <= 1) {
+            System.out.println(-1 + " " + -1);
+            return;
+        }
 
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
@@ -69,7 +76,10 @@ public class EasyProblems {
     }
 
     static void secondLargestElementOptimal(int[] nums) {
-        if (nums.length <= 1) System.out.println(-1 + " " + -1);
+        if (nums.length <= 1) {
+            System.out.println(-1 + " " + -1);
+            return;
+        }
 
         int min = Integer.MAX_VALUE;
         int secondMin = Integer.MAX_VALUE;
@@ -263,7 +273,7 @@ public class EasyProblems {
         int n = nums.length;
 
         // iterate through every number from 0 to n
-        for (int i = 1; i <= n; i++) {
+        for (int i = 0; i <= n; i++) {
             boolean found = false;
 
             // check if 'i' exists in the array
