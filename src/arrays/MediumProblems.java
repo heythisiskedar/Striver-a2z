@@ -5,7 +5,7 @@ import java.util.*;
 public class MediumProblems {
     public static void main(String[] args) {
 
-        int[][] matrix = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = new int[][] {{1, 2, 3}, {4, 0, 6}, {7, 8, 9}};
         int[] nums = {3, 2, 1};
 
         System.out.println(Arrays.toString(nums));
@@ -13,13 +13,14 @@ public class MediumProblems {
         nextPermutation(nums);
         System.out.println(Arrays.toString(nums));
 
-
-        // for (int i = 0; i < matrix.length; i++) {
-        //     for (int j = 0; j < matrix[0].length; j++) {
-        //         System.out.print(matrix[i][j] + " ");
-        //     }
-        //     System.out.println();
-        // }
+        setZerosOptimal(matrix);
+        
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
     static void twoSum(int[] nums, int target) {
@@ -373,7 +374,55 @@ public class MediumProblems {
         int m = matrix.length;
         int n = matrix[0].length;
 
-        
+        boolean firstRowZero = false;
+        boolean firstColZero = false;
+
+        // Check if first row has any zero elements
+        for (int j = 0; j < n; j++) {
+            if (matrix[0][j] == 0) {
+                firstRowZero = true;
+                break;
+            }
+        }
+
+        // Check if first column has any zero elements
+        for (int i = 0; i < m; i++) {
+            if (matrix[i][0] == 0) {
+                firstColZero = true;
+            }
+        }
+
+        // Use first row & column as markers
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                if (matrix[i][j] == 0) {
+                    matrix[i][0] = 0;
+                    matrix[0][j] = 0;
+                }
+            }
+        }
+
+        // Set cells to zeros based on markers
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                if (matrix[i][0] == 0 || matrix[0][j] == 0) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        // Zero the first row if needed
+        if (firstRowZero) {
+            for (int j = 0; j < n; j++) {
+                matrix[j][0] = 0;
+            }
+        }
+
+        if (firstColZero) {
+            for (int i = 0; i < m; i++) {
+                matrix[i][0] = 0;
+            }
+        }
     }
 
     static void rotateImageBrute(int[][] matrix) {
@@ -462,23 +511,19 @@ public class MediumProblems {
         
 
         for (int i = 0; i < n; i++) {
-            boolean greater = false;
+            boolean leader = true;
 
             for (int j = i + 1; j < n; j++) {
                 if (nums[i] <= nums[j]) {
-                    greater = false;
+                    leader = false;
                     break;
-                } else {
-                    greater = true;
                 }
             }
 
-            if (greater) {
+            if (leader) {
                 list.add(nums[i]);
             }
         }
-
-        list.add(nums[n - 1]);
 
         return list;
     }
