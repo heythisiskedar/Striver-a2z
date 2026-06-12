@@ -1,6 +1,6 @@
 package binary_search.binary_search_on_1D_array;
 
-public class FloorAndCeiling {
+class FloorAndCeiling {
     public static void main(String[] args) {
         int[] nums = {3, 4, 4, 7, 8, 10};
         foorAndCeiling(nums,5);
