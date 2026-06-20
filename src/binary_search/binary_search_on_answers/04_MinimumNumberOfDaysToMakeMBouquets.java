@@ -1,0 +1,51 @@
+class Solution {
+    public int minDays(int[] bloomDay, int m, int k) {
+        int n = bloomDay.length;
+       
+        if ((long) m * k > n) {
+            return -1;
+        }
+
+        int low = Integer.MAX_VALUE;
+        int high = Integer.MIN_VALUE;
+        for (int day : bloomDay) {
+            low = Math.min(low, day);
+            high = Math.max(high, day);
+        }
+
+        int result = -1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            
+            if (canMakeBouquets(bloomDay, m, k, mid)) {
+                result = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+
+        return result;
+    }
+
+    private boolean canMakeBouquets(int[] bloomDay, int m, int k, int day) {
+        int bouquets = 0;
+        int adjacentFlowers = 0;
+
+        for (int bloom : bloomDay) {
+            if (bloom <= day) {
+                adjacentFlowers++;
+                
+                if (adjacentFlowers == k) {
+                    bouquets++;
+                    adjacentFlowers = 0;
+                }
+                
+            } else {
+                adjacentFlowers = 0;
+            }
+        }
+        
+        return bouquets >= m;
+    }
+}
