@@ -34,7 +34,7 @@ class Solution {
 
   public double findMedianSortedArraysOptimal(int[] nums1, int[] nums2) {
         if (nums2.length < nums1.length) {
-            return findMedianSortedArrays(nums2, nums1);
+            return findMedianSortedArraysOptimal(nums2, nums1);
         }
         
         int n = nums1.length;
