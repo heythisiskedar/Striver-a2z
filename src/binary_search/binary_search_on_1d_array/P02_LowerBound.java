@@ -1,6 +1,6 @@
-package binary_search.binary_search_on_1D_array;
+package binary_search.binary_search_on_1d_array;
 
-class LowerBound {
+public class P02_LowerBound {
     public static void main(String[] args) {
         int[] nums = {1, 2, 2, 3};
 

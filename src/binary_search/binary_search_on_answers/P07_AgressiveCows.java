@@ -1,6 +1,8 @@
-package binary_search_on_answers;
+package binary_search.binary_search_on_answers;
 
-class Solution {
+import java.util.Arrays;
+
+public class P07_AgressiveCows {
   public int agressiveCowsBrute(int[] stalls, int cows) {
         Arrays.sort(stalls);
         int n = stalls.length;
@@ -21,7 +23,7 @@ class Solution {
 
         int low = 1;
         int high = stalls[n - 1] - stalls[0];
-        int ans = 1:
+        int ans = 1;
 
         while (low <= high) {
             int mid = low + (high - low) / 2;

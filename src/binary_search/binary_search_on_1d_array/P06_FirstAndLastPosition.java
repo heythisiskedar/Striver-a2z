@@ -1,8 +1,8 @@
-package binary_search.binary_search_on_1D_array;
+package binary_search.binary_search_on_1d_array;
 
 import java.util.Arrays;
 
-class FirstAndLastPosition {
+public class P06_FirstAndLastPosition {
     public static void main(String[] args) {
         int[] nums = {5,7,7,8,8,10};
         int[] ans = searchRangeOptimal(nums, 8);

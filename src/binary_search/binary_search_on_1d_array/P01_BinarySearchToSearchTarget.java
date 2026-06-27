@@ -1,6 +1,6 @@
-package binary_search.binary_search_on_1D_array;
+package binary_search.binary_search_on_1d_array;
 
-class BinarySearchToSearchTarget {
+public class P01_BinarySearchToSearchTarget {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 5, 10, 11, 14};
         int result = binarySearchRecursive(nums, 5, 0, nums.length - 1);

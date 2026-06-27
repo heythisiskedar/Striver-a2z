@@ -1,6 +1,6 @@
-package binary_search_on_answers;
+package binary_search.binary_search_on_answers;
 
-class Solution {
+public class P11_MedianOfTwoSortedArrays {
   public double findMedianSortedArraysBrute(int[] nums1, int[] nums2) {
         int m = nums1.length;
         int n = nums2.length;

@@ -1,6 +1,6 @@
-package binary_search_on_answers;
+package binary_search.binary_search_on_answers;
 
-class Solution {
+public class P10_PaintersPartitionProblem {
   public int findLargestMinDistanceBrute(int[] boards, int k) {
         int low = 0;
         int high = 0;
@@ -44,7 +44,7 @@ class Solution {
         return ans;
   }
 
-  private boolean checkPainters(int[] boards, int maxTime, int k) {
+  private static boolean checkPainters(int[] boards, int maxTime, int k) {
         int painters = 1;
         int currentTime = 0;
 

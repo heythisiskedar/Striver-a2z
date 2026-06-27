@@ -1,4 +1,6 @@
-class Solution {
+package binary_search.binary_search_on_answers;
+
+public class P04_MinimumNumberOfDaysToMakeMBouquets {
     public int minDays(int[] bloomDay, int m, int k) {
         int n = bloomDay.length;
        

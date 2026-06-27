@@ -1,6 +1,6 @@
-package binary_search_on_1D_array;
+package binary_search.binary_search_on_1d_array;
 
-class SearchInRotatedArray {
+public class P08_SearchInRotatedArray {
     public static void main(String[] args) {
         int[] nums = {4, 5, 6, 7, 0, 1, 2};
 

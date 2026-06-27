@@ -1,7 +1,7 @@
-package binary_search.binary_search_on_1D_array;
+package binary_search.binary_search_on_1d_array;
 
 // Problem Statement: You are given a sorted array containing N integers and a number X, you have to find the occurrences of X in the given array.
-class CountOccurences {
+public class P07_CountOccurrences {
     public static void main(String[] args) {
         int[] nums = {1, 1, 2, 2, 2, 2, 2, 3};
 

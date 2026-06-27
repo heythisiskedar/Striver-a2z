@@ -1,6 +1,6 @@
-package binary_search.binary_search_on_1D_array;
+package binary_search.binary_search_on_1d_array;
 
-class SearchInsertPosition {
+public class P04_SearchInsertPosition {
     public static void main(String[] args) {
         int[] nums = {1,3,5,6};
         int ans = searchInsertPositionOptimal(nums, 2);

@@ -1,6 +1,6 @@
-package binary_search_on_1D_array;
+package binary_search.binary_search_on_1d_array;
 
-class FindMinimumInRotatedSortedArray {
+public class P10_FindMinimumInRotatedSortedArray {
   static int findMin(int[] nums) {
         int minNum = Integer.MAX_VALUE;
         int low = 0;

@@ -1,6 +1,6 @@
-package binary_search_on_answers;
+package binary_search.binary_search_on_answers;
 
-class Solution {
+public class P02_NthRootOfNumber {
   static int nThRootOfNumberBrute(int n, int m) {
         long root = -1;
 

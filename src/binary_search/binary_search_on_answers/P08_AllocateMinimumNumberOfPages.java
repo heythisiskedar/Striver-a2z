@@ -1,6 +1,6 @@
-package binary_search_on_answers;
+package binary_search.binary_search_on_answers;
 
-class Solution {
+public class P08_AllocateMinimumNumberOfPages {
   public int findPagesBrute(int[] nums, int m) {
         int low = 0;
         int high = 0;
@@ -46,7 +46,7 @@ class Solution {
         return ans;
   }
 
-  private boolean countStudents(int[] nums, int maxPages, int m) {
+  private static boolean countStudents(int[] nums, int maxPages, int m) {
         int stu = 1;
         int curPages = 0;
 

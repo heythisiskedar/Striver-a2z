@@ -1,6 +1,6 @@
-package binary_search_on_answers;
+package binary_search.binary_search_on_answers;
 
-class Solution {
+public class P09_SplitArrayLargestSum {
     public int splitArray(int[] nums, int k) {
         int low = 0;
         int high = 0;

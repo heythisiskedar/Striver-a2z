@@ -1,6 +1,8 @@
-package binary_search_on_answers;
+package binary_search.binary_search_on_answers;
 
-class Solution {
+import java.util.Arrays;
+
+public class P03_KokoEatingBananas {
     public int minEatingSpeed(int[] piles, int h) {
         int maxPile = Arrays.stream(piles).max().getAsInt();
         int low = 1;

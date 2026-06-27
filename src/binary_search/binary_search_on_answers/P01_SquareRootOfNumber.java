@@ -1,6 +1,6 @@
-package binary_search_on_answers;
+package binary_search.binary_search_on_answers;
 
-class Solution {
+public class P01_SquareRootOfNumber {
   static int floorSqrt(int num) {
         if (num == 0 || num == 1) {
             return num;

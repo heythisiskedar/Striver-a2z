@@ -1,4 +1,6 @@
-class Solution {
+package binary_search.binary_search_on_answers;
+
+public class P05_FindTheSmallestDivisor {
     public int smallestDivisor(int[] nums, int threshold) {
         int low = 1;
         int high = 0;

@@ -1,7 +1,7 @@
-package binary_search_on_answers;
+package binary_search.binary_search_on_answers;
 
-class Solution {
-    public int findKthPositive(int[] arr, int k) {
+public class P06_KthMissingPositiveNumber {
+    public int findKthPositiveBrute(int[] arr, int k) {
         for (int num : arr) {
             if (num <= k) {
                 k++;
@@ -13,7 +13,7 @@ class Solution {
         return k;
     }
 
-    public int findKthPositive(int[] arr, int k) {
+    public int findKthPositiveOptimal(int[] arr, int k) {
         int low = 0;
         int high = arr.length - 1;
         

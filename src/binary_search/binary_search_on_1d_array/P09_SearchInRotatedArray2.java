@@ -1,6 +1,6 @@
-package binary_search_on_1D_array;
+package binary_search.binary_search_on_1d_array;
 
-class SearchInRotatedArray2 {
+public class P09_SearchInRotatedArray2 {
   public static void main(String[] args) {
     
   }
