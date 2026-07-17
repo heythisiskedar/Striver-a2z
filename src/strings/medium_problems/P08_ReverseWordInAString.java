@@ -1,7 +1,7 @@
 package strings.medium_problems;
 
 class P08_ReverseWordInAString {
-    public static String reverseWords(String s) {
+    public static String reverseWordsBrute(String s) {
         String[] words = s.trim().split("\\s+");
 
         StringBuilder sb = new StringBuilder();
@@ -17,7 +17,7 @@ class P08_ReverseWordInAString {
         return sb.toString();
     }
 
-    public static String reverseWords(String s) {
+    public static String reverseWordsOptimal(String s) {
         int n = s.length();
         int i = n - 1;
         StringBuilder sb = new StringBuilder();
